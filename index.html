@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+		<head>
+				<title>JS Inheritance</title>
+				<script>
+					'use strict';
+					function Car(make){
+						this.make = make;
+						this.model = null;
+						this.year = null;
+						this.foo = function() {
+								return this.make;
+						}
+				}
+				Car.prototype.bar = function() {
+						return 'the car is: ' + this.make;
+				}
+
+				function Honda(make) {
+						this.make = make;
+				}
+				Honda.prototype = new Car();
+				Honda.prototype.constructor = Honda;
+				console.log(new Honda('Accord').bar());
+				console.log(new Honda('Accord').foo());
+
+
+
+				</script>
+	</head>
+	<body>
+
+	</body>
+</html>
